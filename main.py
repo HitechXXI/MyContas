@@ -1,17 +1,20 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.screenmanager import Screen
+import os
 
-class MinhasContas():
+
+class ContaMensal(Screen):
     pass
 
 
 GUI = Builder.load_file('main.kv')
 
 
-class MyApp(App):
+class MyContasApp(App):
     def build(self):
         return GUI
 
 
 if __name__ == '__main__':
-    MyApp().run()
+    MyContasApp().run()
