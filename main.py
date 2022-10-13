@@ -1,6 +1,10 @@
 from kivy.app import App
 from kivy.lang import Builder
 
+class MinhasContas():
+    pass
+
+
 GUI = Builder.load_file('main.kv')
 
 
