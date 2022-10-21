@@ -1,27 +1,49 @@
 #:kivy 1.1.0
 
 Root:
-    text_input: text_input
+    canvas:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: "icones/bg1.png"
+
+    Label:
+        text: "CONTROLE DE [color=#00CFDB]CONTAS[/color]"
+        bold: True
+        markup: True
+        pos_hint: {"right": 0.9, "top": 1.05}
+        size_hint: 0.8, 0.2
+
+    Button:
+        text: "Load"
+        pos_hint: {"right": 0.1, "top": 0.9}
+        size_hint: 0.1, 0.08
+        on_release: root.show_load()
+
+    Button:
+        text: "Calcular"
+        pos_hint: {"right": 0.22, "top": 0.9}
+        size_hint: 0.1, 0.08
+        on_release: root.calc()
 
     BoxLayout:
-        orientation: 'horizontal'
-        BoxLayout:
-            #size_hint_y: None
-            height: 30
-            Button:
-                text: 'Load'
-                on_release: root.show_load()
+        pos_hint: {"right": 0.27, "top": 0.8}
+        size_hint: 0.25, 0.08
+        TextInput:
+            id: cartao1
+            hint_text: "valor do cartão 1"
+        TextInput:
+            id: cartao2
+            hint_text: "valor do cartão 2"
 
-        BoxLayout:
-            TextInput:
-                id: text_input
-                text: ''
+    BoxLayout:
+        pos_hint: {"right": 1.0, "top": 0.6}
+        size_hint: 0.8, 0.2
+        TextInput:
+            id: text_input
+            text: ''
 
-            RstDocument:
-                text: text_input.text
-                show_errors: True
-
-# O CÓDIGO ABAIXO ABRE A CAIXA DE DIÁLOGO PARA ESCOLHA DO ARQUIVO .PDF
+# O CÓDIGO ABAIXO ABRE A CAIXA DE DIÁLOGO PARA ESCOLHA DO ARQUIVO TXT
 <LoadDialog>:
     BoxLayout:
         size: root.size

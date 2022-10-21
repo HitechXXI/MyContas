@@ -35,20 +35,19 @@ class Root(FloatLayout):
     def show_load(self):
         content = LoadDialog(load=self.load, cancel=self.dismiss_popup)
         self._popup = Popup(title="Load file", content=content,
-                            size_hint=(0.4, 0.4))
+                            size_hint=(0.4, 1.0))
         self._popup.open()
 
     def load(self, path, filename):
         with open(os.path.join(path, filename[0])) as stream:
-            self.text_input.text = stream.read()
-        print(filename[0])
-        self.dismiss_popup()
-
-    def save(self, path, filename):
-        with open(os.path.join(path, filename), 'w') as stream:
-            stream.write(self.text_input.text)
+            self.ids.text_input.text = stream.read()
 
         self.dismiss_popup()
+
+    def calc(self):
+        #self.ids.text_input.text = "certinho"
+        self.ids.text_input.text = self.ids.cartao1.text
+
 
 class Editor(App):
     pass
