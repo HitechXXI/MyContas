@@ -1,47 +1,62 @@
-#:kivy 1.1.0
-
 Root:
     canvas:
         Rectangle:
             size: self.size
             pos: self.pos
             source: "icones/bg1.png"
-
-    Label:
-        text: "CONTROLE DE [color=#00CFDB]CONTAS[/color]"
-        bold: True
-        markup: True
-        pos_hint: {"right": 0.9, "top": 1.05}
-        size_hint: 0.8, 0.2
-
-    Button:
-        text: "Load"
-        pos_hint: {"right": 0.1, "top": 0.9}
-        size_hint: 0.1, 0.08
-        on_release: root.show_load()
-
-    Button:
-        text: "Calcular"
-        pos_hint: {"right": 0.22, "top": 0.9}
-        size_hint: 0.1, 0.08
-        on_release: root.calc()
-
-    BoxLayout:
-        pos_hint: {"right": 0.27, "top": 0.8}
-        size_hint: 0.25, 0.08
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: 0.70, 0.13, 0.18
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Image:
+            source: "icones/logo.png"
+            pos_hint: {"right": 0.55, "top": 1.0}
+            size_hint: 0.10, 0.10
+    FloatLayout:
+        Label:
+            text: "CONTROLE [color=#00CFDB]FAMILIAR[/color]"
+            bold: True
+            markup: True
+            pos_hint: {"right": 0.9, "top": 0.93}
+            size_hint: 0.8, 0.05
+        Label:
+            text: "Valor do cartão 1:"
+            hint_text: "valor do cartão 1"
+            pos_hint: {"right": 0.15, "top": 0.88}
+            size_hint: 0.10, 0.05
         TextInput:
             id: cartao1
             hint_text: "valor do cartão 1"
+            pos_hint: {"right": 0.33, "top": 0.88}
+            size_hint: 0.15, 0.05
+        Label:
+            text: "Valor do cartão 2:"
+            hint_text: "valor do cartão 2"
+            pos_hint: {"right": 0.15, "top": 0.81}
+            size_hint: 0.10, 0.05
         TextInput:
             id: cartao2
             hint_text: "valor do cartão 2"
-
-    BoxLayout:
-        pos_hint: {"right": 1.0, "top": 0.6}
-        size_hint: 0.8, 0.2
+            pos_hint: {"right": 0.33, "top": 0.81}
+            size_hint: 0.15, 0.05
         TextInput:
             id: text_input
             text: ''
+            pos_hint: {"right": 1.0, "top": 0.30}
+            size_hint: 1.0, 0.20
+        Button:
+            text: "Load"
+            on_release: root.show_load()
+            pos_hint: {"right": 1.0, "top": 0.07}
+            size_hint: 0.50, 0.07
+        Button:
+            text: "Calcular"
+            on_release: root.calc()
+            pos_hint: {"right": 0.50, "top": 0.07}
+            size_hint: 0.50, 0.07
 
 # O CÓDIGO ABAIXO ABRE A CAIXA DE DIÁLOGO PARA ESCOLHA DO ARQUIVO TXT
 <LoadDialog>:

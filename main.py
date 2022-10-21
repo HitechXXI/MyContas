@@ -46,7 +46,10 @@ class Root(FloatLayout):
 
     def calc(self):
         #self.ids.text_input.text = "certinho"
-        self.ids.text_input.text = self.ids.cartao1.text
+        c1 = float(self.ids.cartao1.text)
+        c2 = float(self.ids.cartao2.text)
+
+        self.ids.text_input.text = str(c1 + c2)
 
 
 class Editor(App):
